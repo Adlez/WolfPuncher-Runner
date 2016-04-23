@@ -45,3 +45,21 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+Library/assetDatabase3
+Library/CurrentLayout.dwlt
+Library/metadata/00/00000000000000004000000000000000
+Library/metadata/00/00000000000000006100000000000000
+Library/UnityAssemblies/Mono.Cecil.xml
+Library/UnityAssemblies/UnityEditor.dll
+*.dll
+Library/UnityAssemblies/UnityEditor.iOS.Extensions.Common.xml
+Library/UnityAssemblies/UnityEditor.iOS.Extensions.Xcode.xml
+Library/UnityAssemblies/UnityEditor.xml
+Library/UnityAssemblies/UnityEngine.Networking.xml
+*.dll
+Library/UnityAssemblies/UnityEngine.UI.xml
+Library/UnityAssemblies/UnityEngine.xml
+Library/UnityAssemblies/version.txt
+*.csproj
+*.sln
+WolfPuncher-Runner.v12.suo
