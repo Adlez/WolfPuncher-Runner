@@ -46,7 +46,7 @@ public class Movement : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-        
+        m_JumpIncr = 850;
 	}
 
 	// Update is called once per frame

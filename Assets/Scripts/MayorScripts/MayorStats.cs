@@ -17,8 +17,8 @@ public class MayorStats : MonoBehaviour
     float MAXBOREDOM = 60.0f;
     int MAXSADNESS = 5;
 
-    public float MINJUMPFORCE;
-    public float MAXJUMPFORCE;
+    public float MINJUMPFORCE = 35000;
+    public float MAXJUMPFORCE = 85000;
 
     float tempMad;
     int tempSad;
@@ -31,6 +31,9 @@ public class MayorStats : MonoBehaviour
         m_Irritation = 0;
         m_Boredom = 0.0f;
         m_Sadness = 0;
+
+        MINJUMPFORCE = 35000;
+        MAXJUMPFORCE = 85000;
 	}
 	
 	// Update is called once per frame
