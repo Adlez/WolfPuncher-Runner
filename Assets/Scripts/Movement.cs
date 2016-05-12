@@ -27,8 +27,10 @@ public class Movement : MonoBehaviour
 
 	public bool mFacingRight;
     public bool m_ReadyToJump;
+    private bool onGround_ = true;
 
-	public float mJumpForce;
+
+    public float mJumpForce;
     public float m_JumpIncr;
 
 	public bool OnGround
@@ -99,14 +101,11 @@ public class Movement : MonoBehaviour
             float maxJump = mMayorStats.GetComponent<MayorStats>().MAXJUMPFORCE;
             mJumpForce += m_JumpIncr;
 
-            if(mJumpForce < maxJump)
+            if (mJumpForce >= maxJump)
             {
-                //mJumpForce = mJumpForce*2;
-                if (mJumpForce >= maxJump)
-                {
-                    mJumpForce = maxJump;
-                }
+                mJumpForce = maxJump;
             }
+
             m_ReadyToJump = true;
 		}
         else if (Input.GetAxis("Jump") <= 0 && m_ReadyToJump)
@@ -129,7 +128,6 @@ public class Movement : MonoBehaviour
 		// rigidbody2D.AddTorque(mRotSpeed * Input.GetAxis("Horizontal"));
 	}
 
-	bool onGround_ = true;
 	void OnCollisionEnter2D(Collision2D collision)
 	{
         if (collision.collider.tag == "Ground")
