@@ -29,6 +29,7 @@ public class Movement : MonoBehaviour
     public bool m_ReadyToJump;
 
 	public float mJumpForce;
+    public float m_JumpIncr;
 
 	public bool OnGround
 	{
@@ -45,7 +46,7 @@ public class Movement : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		
+        
 	}
 
 	// Update is called once per frame
@@ -96,11 +97,12 @@ public class Movement : MonoBehaviour
 		if (onGround_ && Input.GetAxis("Jump") > 0)
 		{
             float maxJump = mMayorStats.GetComponent<MayorStats>().MAXJUMPFORCE;
+            mJumpForce += m_JumpIncr;
+
             if(mJumpForce < maxJump)
             {
-                mJumpForce++;
-                mJumpForce = mJumpForce*2;
-                if (mJumpForce < maxJump)
+                //mJumpForce = mJumpForce*2;
+                if (mJumpForce >= maxJump)
                 {
                     mJumpForce = maxJump;
                 }
@@ -109,10 +111,20 @@ public class Movement : MonoBehaviour
 		}
         else if (Input.GetAxis("Jump") <= 0 && m_ReadyToJump)
         {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * mJumpForce);
+            float min_JumpForce = mMayorStats.GetComponent<MayorStats>().MINJUMPFORCE;
+
+            if (mJumpForce + min_JumpForce >= mMayorStats.GetComponent<MayorStats>().MAXJUMPFORCE)
+            {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * (mMayorStats.GetComponent<MayorStats>().MAXJUMPFORCE));
+            }
+            else
+            {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * (mJumpForce + min_JumpForce));
+            }
             mAnimator.SetBool("IsJumping", true);
             onGround_ = false;
             m_ReadyToJump = false;
+            mJumpForce = 0;
         }
 		// rigidbody2D.AddTorque(mRotSpeed * Input.GetAxis("Horizontal"));
 	}

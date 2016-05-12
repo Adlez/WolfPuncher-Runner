@@ -17,6 +17,7 @@ public class MayorStats : MonoBehaviour
     float MAXBOREDOM = 60.0f;
     int MAXSADNESS = 5;
 
+    public float MINJUMPFORCE;
     public float MAXJUMPFORCE;
 
     float tempMad;
