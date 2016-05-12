@@ -63,3 +63,13 @@ Library/UnityAssemblies/version.txt
 *.csproj
 *.sln
 WolfPuncher-Runner.v12.suo
+Library/assetDatabase3
+Library/metadata/00/00000000000000004000000000000000
+Library/metadata/00/00000000000000006100000000000000
+*.bin
+*.log
+*.dll
+*.xml
+Library/UnityAssemblies/version.txt
+Temp/__Backupscenes/0.backup
+Temp/UnityLockfile
