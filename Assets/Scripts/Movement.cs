@@ -55,6 +55,10 @@ public class Movement : MonoBehaviour
 	void Update()
 	{
 		//Debug.Log(m_Boredom);
+        if (this.transform.position.x < -4.85)
+        {
+            //this.transform.position.x = -4.85;
+        }
 		
 		if (Input.GetButton("Fire1") && Time.time > m_NextPunch)
 		{
