@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BGScroller : MonoBehaviour 
 {
+    public float nigger = 10.0f;
     public float scrollSpeed;
 	private float backgroundWidth;
 

@@ -5,10 +5,13 @@ public class Movement : MonoBehaviour
 {
     public GameObject m_GameController;
 
-	public MayorStats mMayorStats;
+	public MayorStats m_MayorStats;
 
-	public Transform mFistSpawn;
-	public GameObject mFist;
+    public Transform m_PlayerLocation;
+    public Transform m_RayEnd;
+
+	public Transform m_FistSpawn;
+	public GameObject m_Fist;
 
 	public float m_PunchRate;
 	private float m_NextPunch;
@@ -22,15 +25,15 @@ public class Movement : MonoBehaviour
 	public Animator mSadAnimator;
 	public Animator mBoredAnimator;
 
-	public float mRotSpeed;
+    public RaycastHit2D m_AbovePlatform;
+
 	public float mMaxSpeed;
 
-	public bool mFacingRight;
     public bool m_ReadyToJump;
+    public bool m_PlatformAbove;
     private bool onGround_ = true;
 
-
-    public float mJumpForce;
+    public float m_JumpForce;
     public float m_JumpIncr;
 
 	public bool OnGround
@@ -63,7 +66,7 @@ public class Movement : MonoBehaviour
 		if (Input.GetButton("Fire1") && Time.time > m_NextPunch)
 		{
 			m_NextPunch = Time.time + m_PunchRate;
-			Instantiate(mFist, mFistSpawn.position, mFistSpawn.rotation);
+			Instantiate(m_Fist, m_FistSpawn.position, m_FistSpawn.rotation);
 		}
 		//Instantiate (mFist, mFistSpawn.position, mFistSpawn.rotation);
 
@@ -99,35 +102,36 @@ public class Movement : MonoBehaviour
         //rigidbody2D.AddForce(Vector2.right * Input.GetAxis("Horizontal") * mMaxSpeed);
 		// rigidbody2D.AddForceAtPosition(Vector2.right, new Vector2(transform.position.x, 
 		//                                 transform.position.y + 1.0f));
+        Raycasting(); //Checking for platforms to disable
 
 		if (onGround_ && Input.GetAxis("Jump") > 0)
 		{
-            float maxJump = mMayorStats.GetComponent<MayorStats>().MAXJUMPFORCE;
-            mJumpForce += m_JumpIncr;
+            float maxJump = m_MayorStats.GetComponent<MayorStats>().MAXJUMPFORCE;
+            m_JumpForce += m_JumpIncr;
 
-            if (mJumpForce >= maxJump)
+            if (m_JumpForce >= maxJump)
             {
-                mJumpForce = maxJump;
+                m_JumpForce = maxJump;
             }
 
             m_ReadyToJump = true;
 		}
         else if (Input.GetAxis("Jump") <= 0 && m_ReadyToJump)
         {
-            float min_JumpForce = mMayorStats.GetComponent<MayorStats>().MINJUMPFORCE;
+            float min_JumpForce = m_MayorStats.GetComponent<MayorStats>().MINJUMPFORCE;
 
-            if (mJumpForce + min_JumpForce >= mMayorStats.GetComponent<MayorStats>().MAXJUMPFORCE)
+            if (m_JumpForce + min_JumpForce >= m_MayorStats.GetComponent<MayorStats>().MAXJUMPFORCE)
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * (mMayorStats.GetComponent<MayorStats>().MAXJUMPFORCE));
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * (m_MayorStats.GetComponent<MayorStats>().MAXJUMPFORCE));
             }
             else
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * (mJumpForce + min_JumpForce));
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * (m_JumpForce + min_JumpForce));
             }
             mAnimator.SetBool("IsJumping", true);
             onGround_ = false;
             m_ReadyToJump = false;
-            mJumpForce = 0;
+            m_JumpForce = 0;
         }
 		// rigidbody2D.AddTorque(mRotSpeed * Input.GetAxis("Horizontal"));
 	}
@@ -168,6 +172,26 @@ public class Movement : MonoBehaviour
 	{
 		Debug.Log("OnTriggerEnter");
 	}
+
+    void Raycasting()
+    {
+        Debug.DrawLine(m_PlayerLocation.position, m_RayEnd.position, Color.red);
+        m_AbovePlatform = Physics2D.Linecast(m_PlayerLocation.position, m_RayEnd.position, 1 << LayerMask.NameToLayer("Ground"));//, null, out hit);        
+        //Detects if platform is above the player
+        if (m_AbovePlatform != false)
+        {
+            m_AbovePlatform.collider.enabled = false;
+            Debug.Log("Platform Passable");
+        }        
+        //Disables the collider to allow passage through on the way up
+        //still need to turn it off on the way down,
+        //perhaps a raycast on all platforms to detect if the player is above them, and if so turn it back on?
+    }
+
+    void ColliderKiller()
+    {
+
+    }
 
 }
 

@@ -9,9 +9,12 @@ public class GameController : MonoBehaviour
 
     public Sprite bg_Forest;
     public Sprite bg_Plateau;
+    public Sprite bg_Karat;
+    private Sprite newBG;
 
     public Sprite grnd_Forest;
     public Sprite grnd_Plateau;
+    public Sprite grnd_Karat;
 
     public GameObject m_BackgroundA;
     public GameObject m_GroundA;
@@ -71,31 +74,27 @@ public class GameController : MonoBehaviour
 
     public void SwapBackgrounds(string nameOfSetting)
     {
-        
         if (nameOfSetting == "Forest")
         {
             m_BackgroundA.GetComponent<SpriteRenderer>().sprite = bg_Forest;
             m_BackgroundB.GetComponent<SpriteRenderer>().sprite = bg_Forest;
-        }
-        else if (nameOfSetting == "Plateau")
-        {
-            m_BackgroundA.GetComponent<SpriteRenderer>().sprite = bg_Plateau;
-            m_BackgroundB.GetComponent<SpriteRenderer>().sprite = bg_Plateau;
-        }
-        
-
-        
-        if (nameOfSetting == "Forest")
-        {
             m_GroundA.GetComponent<SpriteRenderer>().sprite = grnd_Forest;
             m_GroundB.GetComponent<SpriteRenderer>().sprite = grnd_Forest;
         }
         else if (nameOfSetting == "Plateau")
         {
+            m_BackgroundA.GetComponent<SpriteRenderer>().sprite = bg_Plateau;
+            m_BackgroundB.GetComponent<SpriteRenderer>().sprite = bg_Plateau;
             m_GroundA.GetComponent<SpriteRenderer>().sprite = grnd_Plateau;
             m_GroundB.GetComponent<SpriteRenderer>().sprite = grnd_Plateau;
         }
-        
+        else if (nameOfSetting == "Karat")
+        {
+            m_BackgroundA.GetComponent<SpriteRenderer>().sprite = bg_Karat;
+            m_BackgroundB.GetComponent<SpriteRenderer>().sprite = bg_Karat;
+            m_GroundA.GetComponent<SpriteRenderer>().sprite = grnd_Karat;
+            m_GroundB.GetComponent<SpriteRenderer>().sprite = grnd_Karat;
+        }
     }
 
 	// Update is called once per frame

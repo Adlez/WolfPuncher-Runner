@@ -5,24 +5,23 @@ using System.Collections.Generic;
 public class SettingSwapperScript : MonoBehaviour 
 {
     public GameObject m_GameController;
-
     public Vector3 mVelocity;
-    public Vector3 mRotation;
-    public Vector3 mScaling;
-
-    public float mRotSpeed;
-
-    public float mJumpForce;
-    public float mMaxSpeed;
-
     public Vector2 speed;
+    public string m_ThisSettingName; //assigned in Unity's inspector
 
     public void ChangeSetting()//string newSetting)
     {
-        m_GameController.GetComponent<GameController>().m_CurSetting = this.name + "";//newSetting;
-        Debug.Log(m_GameController.GetComponent<GameController>().m_CurSetting);
+        if (m_ThisSettingName == "")
+        {
+            m_GameController.GetComponent<GameController>().m_CurSetting = this.name + "";//newSetting;
+            Debug.Log(m_GameController.GetComponent<GameController>().m_CurSetting);
 
-        m_GameController.GetComponent<GameController>().SwapBackgrounds(this.name);
+            m_GameController.GetComponent<GameController>().SwapBackgrounds(this.name);
+        }
+        else
+        {
+            m_GameController.GetComponent<GameController>().SwapBackgrounds(m_ThisSettingName);
+        }
     }
 
     void Update()
