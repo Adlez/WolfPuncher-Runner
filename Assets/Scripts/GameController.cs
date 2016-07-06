@@ -10,19 +10,20 @@ public class GameController : MonoBehaviour
     public Sprite bg_Forest;
     public Sprite bg_Plateau;
     public Sprite bg_Karat;
+    public Sprite bg_Road;
     private Sprite newBG;
 
     public Sprite grnd_Forest;
     public Sprite grnd_Plateau;
     public Sprite grnd_Karat;
+    public Sprite grnd_Road;
 
-    public GameObject m_BackgroundA;
-    public GameObject m_GroundA;
-    public GameObject m_BackgroundB;
-    public GameObject m_GroundB;
-
+    public GameObject[] m_Backgrounds = new GameObject[4];
+    public GameObject[] m_Grounds = new GameObject[4];
+    
     private bool m_GameOver;
     private bool m_Restart;
+	public bool m_BGChange;
 
     public GUIText restartText;
     public GUIText gameOverText;
@@ -76,24 +77,47 @@ public class GameController : MonoBehaviour
     {
         if (nameOfSetting == "Forest")
         {
-            m_BackgroundA.GetComponent<SpriteRenderer>().sprite = bg_Forest;
-            m_BackgroundB.GetComponent<SpriteRenderer>().sprite = bg_Forest;
-            m_GroundA.GetComponent<SpriteRenderer>().sprite = grnd_Forest;
-            m_GroundB.GetComponent<SpriteRenderer>().sprite = grnd_Forest;
+            for (int i = 0; i < m_Backgrounds.Length; ++i)
+            {
+                m_Backgrounds[i].GetComponent<SpriteRenderer>().sprite = bg_Forest;
+            }
+            for (int i = 0; i < m_Grounds.Length; ++i)
+            {
+                m_Grounds[i].GetComponent<SpriteRenderer>().sprite = grnd_Forest;
+            }
         }
         else if (nameOfSetting == "Plateau")
         {
-            m_BackgroundA.GetComponent<SpriteRenderer>().sprite = bg_Plateau;
-            m_BackgroundB.GetComponent<SpriteRenderer>().sprite = bg_Plateau;
-            m_GroundA.GetComponent<SpriteRenderer>().sprite = grnd_Plateau;
-            m_GroundB.GetComponent<SpriteRenderer>().sprite = grnd_Plateau;
+            for (int i = 0; i < m_Backgrounds.Length; ++i)
+            {
+                m_Backgrounds[i].GetComponent<SpriteRenderer>().sprite = bg_Plateau;
+            }
+            for (int i = 0; i < m_Grounds.Length; ++i)
+            {
+                m_Grounds[i].GetComponent<SpriteRenderer>().sprite = grnd_Plateau;
+            }
         }
         else if (nameOfSetting == "Karat")
         {
-            m_BackgroundA.GetComponent<SpriteRenderer>().sprite = bg_Karat;
-            m_BackgroundB.GetComponent<SpriteRenderer>().sprite = bg_Karat;
-            m_GroundA.GetComponent<SpriteRenderer>().sprite = grnd_Karat;
-            m_GroundB.GetComponent<SpriteRenderer>().sprite = grnd_Karat;
+            for (int i = 0; i < m_Backgrounds.Length; ++i)
+            {
+                m_Backgrounds[i].GetComponent<SpriteRenderer>().sprite = bg_Karat;
+            }
+            for (int i = 0; i < m_Grounds.Length; ++i)
+            {
+                m_Grounds[i].GetComponent<SpriteRenderer>().sprite = grnd_Karat;
+            }
+        }
+        else if (nameOfSetting == "Road")
+        {
+            for (int i = 0; i < m_Backgrounds.Length; ++i)
+            {
+                m_Backgrounds[i].GetComponent<SpriteRenderer>().sprite = bg_Road;
+            }
+            for (int i = 0; i < m_Grounds.Length; ++i)
+            {
+                m_Grounds[i].GetComponent<SpriteRenderer>().sprite = grnd_Road;
+            }
         }
     }
 
