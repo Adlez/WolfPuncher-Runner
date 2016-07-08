@@ -68,6 +68,11 @@ public class Movement : MonoBehaviour
 			m_NextPunch = Time.time + m_PunchRate;
 			Instantiate(m_Fist, m_FistSpawn.position, m_FistSpawn.rotation);
 		}
+
+		if (onGround_ == false)
+		{
+			mAnimator.SetBool("IsJumping", true);
+		}
 		//Instantiate (mFist, mFistSpawn.position, mFistSpawn.rotation);
 
 		
@@ -140,8 +145,11 @@ public class Movement : MonoBehaviour
 	{
         if (collision.collider.tag == "Ground")
 		{
-			onGround_ = true;
-			mAnimator.SetBool("IsJumping", false);
+			if (onGround_ == false)
+			{
+				onGround_ = true;
+				mAnimator.SetBool("IsJumping", false);
+			}
 		}
 		
 		if (collision.collider.tag == "Wolf")
@@ -168,10 +176,12 @@ public class Movement : MonoBehaviour
 		Debug.Log("OnTriggerExit");
 	}*/
 
+	/*
 	void OnCollisionEnter2D(Collider2D other)
 	{
+		
 		Debug.Log("OnTriggerEnter");
-	}
+	}*/
 
     void Raycasting()
     {
