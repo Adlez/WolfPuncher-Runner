@@ -26,15 +26,15 @@ public class GroundController : MonoBehaviour
         newPosition.x += Time.deltaTime * scrollSpeed;
         transform.position = newPosition;
         Raycasting();
-        Debug.DrawLine(grnd_ThisPlatformLoc.position, grnd_EndOfRay.position);
+        //Debug.DrawLine(grnd_ThisPlatformLoc.position, grnd_EndOfRay.position);
     }
 
     void Raycasting()
     {
-        Debug.DrawLine(grnd_ThisPlatformLoc.position, grnd_EndOfRay.position, Color.blue);
+        //Debug.DrawLine(grnd_ThisPlatformLoc.position, grnd_EndOfRay.position, Color.blue);
         grnd_PlayerHit = Physics2D.Linecast(grnd_ThisPlatformLoc.position + rayStartOffset, grnd_EndOfRay.position, 1 << LayerMask.NameToLayer("PlayerFeet"));//, null, out hit);        
         grnd_ThisPlatform.GetComponent<BoxCollider2D>().enabled = true;
-        Debug.Log("platform solid");
+        //Debug.Log("platform solid");
     }
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -43,9 +43,8 @@ public class GroundController : MonoBehaviour
 		{
 			for(int i = 0; i < m_BGController.Length; ++i)
 			{
-				m_BGController[i].GetComponent<BGController>().ChangeSetting(m_ThisSettingName);//colliderName);
+				m_BGController[i].GetComponent<BGController>().ChangeSetting(m_ThisSettingName);
 			}
-
 		}
 	}
 }

@@ -20,8 +20,8 @@ public class MayorStats : MonoBehaviour
     public float MINJUMPFORCE = 35000;
     public float MAXJUMPFORCE = 85000;
 
-    float tempMad;
-    int tempSad;
+    public float tempMad;
+    public int tempSad;
 
 	// Use this for initialization
 	void Start () 

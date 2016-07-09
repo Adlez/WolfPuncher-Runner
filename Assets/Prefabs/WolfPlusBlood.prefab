@@ -112,7 +112,7 @@ MonoBehaviour:
   BloodExplosion: {fileID: 100000, guid: 3d5504f6e61fcd84197ce009ef1365f4, type: 2}
   mRotSpeed: 0
   mJumpForce: 0
-  mMaxSpeed: 5
+  mMaxSpeed: 2
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

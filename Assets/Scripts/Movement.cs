@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : MonoBehaviour
+public class Movement : MonoBehaviour //technically: MayorController
 {
     public GameObject m_GameController;
 
@@ -143,6 +143,7 @@ public class Movement : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
+		var mStats = m_MayorStats.GetComponent<MayorStats>();
         if (collision.collider.tag == "Ground")
 		{
 			if (onGround_ == false)
@@ -155,14 +156,14 @@ public class Movement : MonoBehaviour
 		if (collision.collider.tag == "Wolf")
 		{
 //			Instantiate(BloodExplosion, transform.position, transform.rotation);
-//			tempMad += 0.5f;
-//			mIritAnimator.SetFloat("Irritation", tempMad);
+			mStats.tempMad += 0.5f;
+			mIritAnimator.SetFloat("Irritation", mStats.tempMad);
 		}
 		if (collision.collider.tag == "Bunny")
 		{
 //			Instantiate(BloodExplosion, transform.position, transform.rotation);
-//			tempSad += 1;
-//			mSadAnimator.SetInteger("Sadness", tempSad);
+			mStats.tempSad += 1;
+			mSadAnimator.SetInteger("Sadness", mStats.tempSad);
 		} 
 	}
 

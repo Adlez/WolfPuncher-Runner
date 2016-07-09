@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -25,9 +26,10 @@ public class GameController : MonoBehaviour
     private bool m_Restart;
 	public bool m_BGChange;
 
-    public GUIText restartText;
-    public GUIText gameOverText;
-    public GUIText wolvesKilledText;
+    public Text restartText;
+    public Text gameOverText;
+	//public 
+    public Text wolvesKilledText;
 
     public static int m_WolvesKilled = 0;
 

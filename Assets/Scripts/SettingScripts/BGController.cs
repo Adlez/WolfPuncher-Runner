@@ -6,10 +6,10 @@ public class BGController : MonoBehaviour
 	public GameObject m_GameController;
 	public Vector3 mVelocity;
 	public Vector2 speed;
-	//public string m_ThisSettingName; //assigned in Unity's inspector
 
 	public float scrollSpeed;
 	private float backgroundWidth;
+	private bool _bgIsRecycling;
 
 	private Transform backgroundTransform;
 	private Vector3 newPosition;
@@ -25,19 +25,17 @@ public class BGController : MonoBehaviour
 
 	public void ChangeSetting(string newSetting)//string newSetting)
 	{
-		m_GameController.GetComponent<GameController>().m_BGChange = true;
-
 		if (newSetting == "")
-        {
-            m_GameController.GetComponent<GameController>().m_CurSetting = this.name + "";//newSetting;
-            Debug.Log(m_GameController.GetComponent<GameController>().m_CurSetting);
+		{
+			m_GameController.GetComponent<GameController>().m_CurSetting = this.name + "";//newSetting;
+			Debug.Log(m_GameController.GetComponent<GameController>().m_CurSetting);
 
-            m_GameController.GetComponent<GameController>().SwapBackgrounds(this.name);
-        }
-        else
-        {
+			m_GameController.GetComponent<GameController>().SwapBackgrounds(this.name);
+		}
+		else
+		{
 			m_GameController.GetComponent<GameController>().SwapBackgrounds(newSetting);
-        }
+		}
 	}
 
 	void Update()
@@ -50,20 +48,9 @@ public class BGController : MonoBehaviour
 			Vector3 newPos = transform.position;
 			newPos.x += 1.98f * backgroundWidth;
 			transform.position = newPos;
-			if (m_GameController.GetComponent<GameController>().m_BGChange)
-			{
-				//m_GameController.GetComponent<GameController>().SwapBackgrounds(m_ThisSettingName);
-			}
 			newPosition = newPos;
 		}
 
 		GetComponent<Rigidbody2D>().velocity = mVelocity.x * speed;
-	}
-	void OnCollisionEnter2D(Collision2D collision)
-	{
-		if (collision.collider.tag == "Player")
-		{
-			//ChangeSetting();//colliderName);
-		}
 	}
 }
