@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//Obsolete code, not used anymore
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -10,13 +11,6 @@ public class WolfSpawner : MonoBehaviour
 	public int WolvesOnScreen;
 	int MaxWolves = 1;
 	int gameClock = 0;
-
-	// Use this for initialization
-	void Start () 
-	{
-		
-		
-	}
 
 	void SpawnObj()
 	{
@@ -42,7 +36,7 @@ public class WolfSpawner : MonoBehaviour
 			{
 				Debug.Log(WolvesOnScreen);
 			
-				InvokeRepeating("SpawnObj", minSpawnTime, maxSpawnTime);
+				//InvokeRepeating("SpawnObj", minSpawnTime, maxSpawnTime);
 			}
 			
 		}

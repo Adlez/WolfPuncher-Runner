@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//Obsolete code, not used anymore
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -13,7 +14,7 @@ public class BunnySpawner : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		InvokeRepeating("SpawnObj", minSpawnTime, maxSpawnTime);
+		//InvokeRepeating("SpawnObj", minSpawnTime, maxSpawnTime);
 	}
 
 	void SpawnObj()
@@ -28,11 +29,5 @@ public class BunnySpawner : MonoBehaviour
 		obj.transform.rotation = transform.rotation;
 		obj.SetActive(true);
 
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
 	}
 }

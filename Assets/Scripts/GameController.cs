@@ -28,7 +28,6 @@ public class GameController : MonoBehaviour
 
     public Text restartText;
     public Text gameOverText;
-	//public 
     public Text wolvesKilledText;
 
     public static int m_WolvesKilled = 0;

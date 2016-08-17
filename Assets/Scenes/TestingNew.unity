@@ -647,7 +647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &313696682
 Transform:
   m_ObjectHideFlags: 0
@@ -1145,20 +1145,10 @@ MonoBehaviour:
   m_Spawners:
   - {fileID: 1329754646}
   - {fileID: 475994713}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 191048, guid: 88695adf902fe9f488f28d08d65d42ad, type: 2}
+  m_SpawnerNames:
+  - Bunny
+  - Wolf
 --- !u!4 &551118659 stripped
 Transform:
   m_PrefabParentObject: {fileID: 449130, guid: d4f2ec06c50f1074c9b858e41247c6d2, type: 2}
@@ -4323,15 +4313,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: e33a2f7c3e5884d4cb71ab0aaf2073b2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.76323891
+      value: 9.763239
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e33a2f7c3e5884d4cb71ab0aaf2073b2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.90670109
+      value: 4.906701
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e33a2f7c3e5884d4cb71ab0aaf2073b2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 15.9821281
+      value: 15.982128
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e33a2f7c3e5884d4cb71ab0aaf2073b2, type: 2}
       propertyPath: m_LocalRotation.x

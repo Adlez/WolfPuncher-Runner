@@ -7,14 +7,10 @@ public class GenericEnemySpawnScript : MonoBehaviour
 	public float minSpawnTime;
 	public float maxSpawnTime;
 
-    public GameObject m_ObjPooler;
-    public GameObject m_SpawnLocation;
+	public GameObject m_ObjPooler;
+	public GameObject m_SpawnLocation;
 
-    //public string m_CurSetting;
-
-    //public List<GameObject> m_PooledObjects;
-
-	// Use this for initialization
+	//public string m_CurSetting;
 	void Start () 
 	{
 		InvokeRepeating("SpawnObj", minSpawnTime, maxSpawnTime);
@@ -22,18 +18,24 @@ public class GenericEnemySpawnScript : MonoBehaviour
 
 	void SpawnObj()
 	{
-        Vector3 ObjPos = m_SpawnLocation.transform.position;
-        GameObject obj = m_ObjPooler.GetComponent<GenericEnemyPooler>().GetPooledObject();
+		Vector3 ObjPos = m_SpawnLocation.transform.position;
+		GameObject obj = m_ObjPooler.GetComponent<GenericEnemyPooler>().GetPooledObject();
 
-		if (obj == null) return;
+		if (obj == null) 
+			return;
 
-        GetCurSetting();
+		GetCurSetting();
 
-        if (obj.name == "WolfPlusBlood")
-        {
-            minSpawnTime = 3;
-            maxSpawnTime = Random.Range(5, 35);
-        }
+		if (obj.name == "WolfPlusBlood")
+		{
+			//minSpawnTime = 3;
+			//maxSpawnTime = Random.Range(5, 35);
+		}
+		else
+		{
+			//minSpawnTime = 3;
+			//maxSpawnTime = Random.Range(5, 10);
+		}
 
 		obj.transform.position = ObjPos;
 		obj.transform.rotation = transform.rotation;
@@ -41,8 +43,8 @@ public class GenericEnemySpawnScript : MonoBehaviour
 
 	}
 
-    void GetCurSetting()
-    {
+	void GetCurSetting()
+	{
 
-    }
+	}
 }

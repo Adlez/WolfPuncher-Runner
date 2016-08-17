@@ -16,16 +16,6 @@ public class BunnyBehaviour : MonoBehaviour
 
 	bool onGround_ = true;
 
-	// Use this for initialization
-	void Start()
-	{
-
-	}
-
-	void OnEnable()
-	{
-
-	}
 	void OnDisable()
 	{
 		CancelInvoke();
@@ -49,7 +39,6 @@ public class BunnyBehaviour : MonoBehaviour
 		}
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 		GetComponent<Rigidbody2D>().velocity = mVelocity.x * speed;
