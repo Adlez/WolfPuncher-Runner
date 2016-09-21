@@ -13,6 +13,9 @@ public class MayorStats : MonoBehaviour
     public float m_Boredom;
     public int m_Sadness;
 
+	public float m_Acceleration;
+	public float m_CurSpeed;
+
     int MAXIRRITATION = 10;
     float MAXBOREDOM = 60.0f;
     int MAXSADNESS = 5;

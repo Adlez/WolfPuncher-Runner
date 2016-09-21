@@ -17,7 +17,7 @@ public class BunnySpawner : MonoBehaviour
 		//InvokeRepeating("SpawnObj", minSpawnTime, maxSpawnTime);
 	}
 
-	void SpawnObj()
+	public void SpawnObj()
 	{
         Vector3 ObjPos = m_SpawnLocation.transform.position;
         GameObject obj = bunnyPooler.GetComponent<BunnyPooler>().GetPooledObject();

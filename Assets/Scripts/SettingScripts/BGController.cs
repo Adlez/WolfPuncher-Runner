@@ -30,11 +30,11 @@ public class BGController : MonoBehaviour
 			m_GameController.GetComponent<GameController>().m_CurSetting = this.name + "";//newSetting;
 			Debug.Log(m_GameController.GetComponent<GameController>().m_CurSetting);
 
-			m_GameController.GetComponent<GameController>().SwapBackgrounds(this.name);
+			//m_GameController.GetComponent<GameController>().SwapBackgrounds(this.name);
 		}
 		else
 		{
-			m_GameController.GetComponent<GameController>().SwapBackgrounds(newSetting);
+			//m_GameController.GetComponent<GameController>().SwapBackgrounds(newSetting);
 		}
 	}
 

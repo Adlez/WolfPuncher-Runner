@@ -40,27 +40,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6738ad4ee775dae4891fd3e1cd05da7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gc_CurLevel: {fileID: 0}
+  gc_CurLevelSection: {fileID: 0}
+  gc_EventCanvas: {fileID: 0}
   m_CurSetting: 
   m_Settings: []
-  bg_Forest: {fileID: 21300000, guid: 1056f367632aaaa4294084780d489a61, type: 3}
-  bg_Plateau: {fileID: 21300000, guid: 0cb2212ed8057e841a65846c05d31f6b, type: 3}
-  bg_Karat: {fileID: 21300000, guid: 66ae8cf2a13a88f46a980535bcbe1628, type: 3}
-  bg_Road: {fileID: 21300000, guid: 95ab805378ccced4d9d19e97224e46b2, type: 3}
-  grnd_Forest: {fileID: 21300000, guid: 1056f367632aaaa4294084780d489a61, type: 3}
-  grnd_Plateau: {fileID: 21300000, guid: 50e7b1362af74c84abfc87c130d4b6c8, type: 3}
-  grnd_Karat: {fileID: 21300000, guid: 66ae8cf2a13a88f46a980535bcbe1628, type: 3}
-  grnd_Road: {fileID: 21300000, guid: 95ab805378ccced4d9d19e97224e46b2, type: 3}
-  m_Backgrounds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_Grounds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_BGChange: 0
+  gc_GameIsPaused: 0
   restartText: {fileID: 0}
   gameOverText: {fileID: 0}
   wolvesKilledText: {fileID: 0}

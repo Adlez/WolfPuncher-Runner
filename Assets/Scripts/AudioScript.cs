@@ -3,13 +3,13 @@ using System.Collections;
 
 public class AudioScript : MonoBehaviour
 {
-	void Start()
+	public void PlayMusic()
 	{
 		GetComponent<AudioSource>().Play();
 	}
-	// Update is called once per frame
-	void Update () 
-	{
 
+	public void PauseMusic()
+	{
+		GetComponent<AudioSource>().Pause();
 	}
 }
