@@ -1,0 +1,46 @@
+--- WOLFPUNCHER ---
+to-do list:
+
+--technical--
+disable object spawning while game is paused
+the LevelPlacer script currently acts as a dual script for two different objects
+	Should probably pull this script apart and make two separate scripts, one for the 
+	worldContainer and one for the actual platforms. Just make it eaiser to understand,
+	it works just fine the way it is.
+design levels in a way that when the next level is spawned and the player is on it, no other level 
+	is active/interferes with the curLevel
+Add Boss Fights
+	-mayor dodging left and right
+	-mayor stationary
+	-Designed like Punch-Out!
+	-Boss Patterns
+	-etc
+Add remaining Obstacles to the game along with their spawners
+Create Displays to show Mayor's Jumpforce and PunchForce to the player
+Reintroduce the Score as the number of wolves destroyed by the Mayor's Fist
+Display a game Timer
+Have the Mayor Mood Indicator animate properly (again)
+Implement the use of external files to load dialogue for the Dialogue.cs file to use.
+Write the dialogue for each event in game
+Implement each in game event
+Add Remaining Actors to the game
+Implement Actor's switching Sprites when appropriate during "Cutscenes"
+Display the Speaking Actor's name in the appropriate text box during "Cutscenes"
+Need to close the Dialogue "Cutscene"
+
+--visual--
+proper background sprites
+proper animation for the mayor's punches
+proper anim for the mayor
+proper sprites for the ground
+proper sprites for the obstacles
+,,, Basically all the art needs to be done, 
+	game sprites, character portraits, objects and their animations, etc
+	
+
+If you decide to start working on someting from the list:
+Inform the team of what item you'll be working on
+Create a back up of any prefabs or scripts you'll be working in
+Create a new scene (duplicate the LevelTesting scene) to work in.
+Once your changes are done Inform the rest of the team so we can implement 
+your changes to the main scene and all sync together.
