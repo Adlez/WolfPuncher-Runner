@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class GenericEnemySpawnScript : MonoBehaviour 
 {
+	public GameObject m_GameController;
 	public float minSpawnTime;
 	public float maxSpawnTime;
 
@@ -24,30 +25,36 @@ public class GenericEnemySpawnScript : MonoBehaviour
 
 	public void SpawnObj()
 	{
-		for (int i = 0; i < m_SpawnLocations.Count; ++i)
+		if (m_GameController.GetComponent<GameController>().gc_GameIsPaused == false)
 		{
-			Vector3 ObjPos = m_SpawnLocations[i].transform.position;
-			GameObject obj = m_ObjPooler.GetComponent<GenericEnemyPooler>().GetPooledObject();
-
-			if (obj == null)
-				return;
-
-			//GetCurSetting();
-
-			if (obj.name == "WolfPlusBlood")
+			for (int i = 0; i < m_SpawnLocations.Count; ++i)
 			{
-				//minSpawnTime = 3;
-				//maxSpawnTime = Random.Range(5, 35);
-			}
-			else
-			{
-				//minSpawnTime = 3;
-				//maxSpawnTime = Random.Range(5, 10);
-			}
+				Vector3 ObjPos = m_SpawnLocations[i].transform.position;
+				GameObject obj = m_ObjPooler.GetComponent<GenericEnemyPooler>().GetPooledObject();
 
-			obj.transform.position = ObjPos;
-			obj.transform.rotation = transform.rotation;
-			obj.SetActive(true);
+				if (obj == null)
+					return;
+
+				//GetCurSetting();
+
+				if (obj.name == "WolfPlusBlood")
+				{
+					//minSpawnTime = 3;
+					//maxSpawnTime = Random.Range(5, 35);
+				}
+				else
+				{
+					//minSpawnTime = 3;
+					//maxSpawnTime = Random.Range(5, 10);
+				}
+				
+				//Slightly alter the spawn pos of Wolves for those that spawn at the same time
+				//ObjPos.x *= i;
+
+				obj.transform.position = ObjPos;
+				obj.transform.rotation = transform.rotation;
+				obj.SetActive(true);
+			}
 		}
 		/*(Vector3 ObjPos = m_SpawnLocation.transform.position;
 		GameObject obj = m_ObjPooler.GetComponent<GenericEnemyPooler>().GetPooledObject();

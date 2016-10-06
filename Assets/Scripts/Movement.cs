@@ -44,6 +44,13 @@ public class Movement : MonoBehaviour //technically: MayorController
     public float m_JumpForce;
     public float m_JumpIncr;
 
+	public int m_WolvesKilledByFist;
+	public int m_WolvesKilledByGust;
+	public int m_WolvesKilledByCollision;
+	public int m_WolvesKilledByKO;
+
+	public int m_TotalWolvesKilled;
+
 	public bool OnGround
 	{
 		get
@@ -59,7 +66,7 @@ public class Movement : MonoBehaviour //technically: MayorController
 	// Use this for initialization
 	void Start()
 	{
-        m_JumpIncr = 850;
+		m_JumpIncr = 850;
 	}
 
 	public void TurnAround()
@@ -180,6 +187,9 @@ public class Movement : MonoBehaviour //technically: MayorController
 			this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 15);
 		}
 		_LastPos = _CurPos;
+
+		m_TotalWolvesKilled = m_WolvesKilledByCollision + m_WolvesKilledByFist + m_WolvesKilledByGust + m_WolvesKilledByKO;
+		m_GameController.GetComponent<GameController>().gc_ScoreDisplay.text = m_TotalWolvesKilled.ToString();
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)

@@ -41,10 +41,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6316bba73e2c46d48bd6305406b5f704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnTime: 5
-  maxSpawnTime: 15
+  m_GameController: {fileID: 0}
+  minSpawnTime: 1
+  maxSpawnTime: 4
   m_ObjPooler: {fileID: 191048}
   m_SpawnLocation: {fileID: 0}
+  m_SpawnLocations:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11485814
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -40,9 +40,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6738ad4ee775dae4891fd3e1cd05da7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gc_WorldContainer: {fileID: 0}
   gc_CurLevel: {fileID: 0}
   gc_CurLevelSection: {fileID: 0}
   gc_EventCanvas: {fileID: 0}
+  gc_TheMayor: {fileID: 0}
+  gc_AudioPlayer: {fileID: 0}
   m_CurSetting: 
   m_Settings: []
   gc_GameIsPaused: 0

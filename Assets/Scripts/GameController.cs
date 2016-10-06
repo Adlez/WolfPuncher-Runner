@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
 	public GameObject gc_TheMayor;
 	public GameObject gc_AudioPlayer;
 	//public List<GameObject> gc_ObjSpawners;
+	public Text gc_ScoreDisplay;
 
 	public string m_CurSetting;
 	public List<string> m_Settings;

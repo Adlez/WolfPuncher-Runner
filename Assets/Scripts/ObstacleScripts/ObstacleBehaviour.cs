@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ObstacleBehaviour : MonoBehaviour 
 {
+	public GameObject ob_Player;
 	public Vector3 mVelocity;
 	public Vector3 mRotation;
 	public Vector3 mScaling;
@@ -12,11 +13,13 @@ public class ObstacleBehaviour : MonoBehaviour
 	public float mRotSpeed;
 
 	public float mJumpForce;
-	public float mMaxSpeed;
+	public float ob_MinSpeed;
+	public float ob_MaxSpeed;
+	public float ob_CurSpeed;
 
 	///	Animator mBoredAnim;
 
-	bool onGround_ = true;
+	protected bool onGround_ = true;
 
 	void Start()
 	{
@@ -25,7 +28,7 @@ public class ObstacleBehaviour : MonoBehaviour
 
 	public virtual void OnEnable()
 	{
-
+		ob_CurSpeed = Random.Range(ob_MinSpeed, ob_MaxSpeed);
 	}
 	public virtual void OnDisable()
 	{
@@ -37,7 +40,7 @@ public class ObstacleBehaviour : MonoBehaviour
 		gameObject.SetActive(false);
 	}
 
-	void OnCollisionEnter2D(Collision2D collision)
+	protected virtual void OnCollisionEnter2D(Collision2D collision)
 	{
 		GetComponent<ParticleSystem>().enableEmission = false;
 		if (collision.collider.tag == "Ground")
@@ -76,7 +79,7 @@ public class ObstacleBehaviour : MonoBehaviour
 	
 	void Update()
 	{
-		GetComponent<Rigidbody2D>().AddForce(-(Vector2.right * mMaxSpeed));
+		GetComponent<Rigidbody2D>().AddForce(-(Vector2.right * ob_CurSpeed));
 		if (gameObject.GetComponent<Rigidbody2D>().position.y < -25)
 		{
 			Invoke("DestroyObject", 0.1f);

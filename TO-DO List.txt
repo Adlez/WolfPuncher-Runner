@@ -2,7 +2,7 @@
 to-do list:
 
 --technical--
-disable object spawning while game is paused
+//disable object spawning while game is paused --FIXED
 the LevelPlacer script currently acts as a dual script for two different objects
 	Should probably pull this script apart and make two separate scripts, one for the 
 	worldContainer and one for the actual platforms. Just make it eaiser to understand,

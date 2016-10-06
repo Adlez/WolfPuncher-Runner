@@ -35,7 +35,6 @@ public class Fist : MonoBehaviour
 		{
 			//mMovement.GetComponent<Movement>().WolfKilled();
 			mBoredAnimator.SetFloat("Boredom", 0.0f);
-			//Movement.mWolvesKilled += 1;
 			//Movement.tempBored = 0.0f;
 			//f_ObstacleBehaviour.GetComponent<ObstacleBehaviour>().DestroyObject();
 			//Instantiate(BloodExplosion, transform.position, transform.rotation);
