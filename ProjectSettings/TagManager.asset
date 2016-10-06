@@ -17,6 +17,7 @@ TagManager:
   - WorldContainer
   - Wall
   - TheGreatNothing
+  - Gust
   layers:
   - Default
   - TransparentFX
