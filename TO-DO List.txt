@@ -17,7 +17,7 @@ Add Boss Fights
 	-etc
 Add remaining Obstacles to the game along with their spawners
 Create Displays to show Mayor's Jumpforce and PunchForce to the player
-Reintroduce the Score as the number of wolves destroyed by the Mayor's Fist
+//Reintroduce the Score as the number of wolves destroyed by the Mayor's Fist --FIXED
 Display a game Timer
 Have the Mayor Mood Indicator animate properly (again)
 Implement the use of external files to load dialogue for the Dialogue.cs file to use.
